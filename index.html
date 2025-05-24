@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Marmolería y Servicios Funerarios</title>
+<title>Marmolería y Funeraria Reina del Rocío</title>
 
 <meta name="google-site-verification" content="mGQdSwOf_ld_-erg3MS06sV-PGq7Y8F80DaHy4h3MMc" />
+
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
 
 <!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/a2d3e19c17.js" crossorigin="anonymous"></script>
@@ -24,57 +28,60 @@
   body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
-    background-color: #102a43;
+    background-color: #57b6f5;
     color: #cbd5e1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   h1 {
     font-weight: 900;
-    color: #f0f0f5;
+    color: #000000;
     font-size: 2.8rem;
-    text-shadow: 0 0 4px #7c3aed;
+    text-shadow: 0 0 4px #0066ff;
   }
   p {
     font-size: 1.25rem;
     line-height: 1.7;
     margin-top: 0.3em;
-    color: #bfc9d9;
+    color: #000000;
   }
   ul {
     margin-top: 0.3em;
-    color: #bfc9d9;
+    color: #000000;
     font-size: 1.2rem;
   }
 
   /* Navbar */
-  nav {
-    display: flex;
-    justify-content: flex-end; /* Cambio para alinear a la derecha */
-    gap: 22px;
-    margin: 16px 0 20px 0;
-    padding: 0 12px;
-    user-select: none;
-    z-index: 10000;
-    position: sticky;
-    top: 0;
-    background-color: rgba(20,25,40,0.95);
-    border-radius: 30px;
-  }
+ nav {
+  display: flex;
+  justify-content: flex-end; /* botones a la derecha */
+  align-items: center;       /* centrar verticalmente todo el contenido */
+  padding: 0 12px;
+  height: 90px;              /* altura mayor */
+  background-color: #2595f0; /* celeste suave */
+  border-radius: 30px;
+  position: sticky;
+  top: 0;
+  user-select: none;
+  z-index: 10000;
+}
 
-  /* Espacio para el logo a la izquierda */
-  .logo-space {
-    width: 150px; /* Espacio reservado para logo */
-    height: 48px; /* Alto aproximado */
-    margin-right: 12px;
-  }
+.logo-space {
+  width: 150px;           /* ancho fijo para el contenedor */
+  height: 90px;           /* altura para centrar verticalmente */
+  display: flex;
+  justify-content: flex-start; /* logo alineado a la izquierda dentro del contenedor */
+  align-items: center;          /* logo centrado verticalmente */
+  margin-right: 450px;
+  padding-left: 100px;           /* un pequeño espacio desde el borde izquierdo */
+}
 
   nav button {
     background: transparent;
     border: 2.5px solid transparent;
     font-weight: 700;
     font-size: 1.1rem;
-    color: #cbd5e1;
+    color: #000000;
     padding: 8px 16px;
     border-radius: 30px;
     cursor: pointer;
@@ -96,10 +103,10 @@
   }
   nav button.active,
   nav button[aria-current="page"] {
-    background-color: #7c3aed;
+    background-color: #4598e6;
     color: #f0f0f5;
-    border-color: #7c3aed;
-    box-shadow: 0 0 12px #7c3aed;
+    border-color: #4598e6;
+    box-shadow: 0 0 12px #4598e6;
   }
 
   /* Dropdown styles */
@@ -111,7 +118,7 @@
     font-size: 1.1rem;
     background: transparent;
     border: 2.5px solid transparent;
-    color: #cbd5e1;
+    color: #000000;
     padding: 8px 16px;
     border-radius: 30px;
     cursor: pointer;
@@ -135,10 +142,10 @@
     box-shadow: 0 0 12px #64d8f5;
   }
   .dropdown-toggle.active {
-    background-color: #7c3aed;
+    background-color: #4598e6;
     color: #f0f0f5;
-    border-color: #7c3aed;
-    box-shadow: 0 0 12px #7c3aed;
+    border-color: #4598e6;
+    box-shadow: 0 0 12px #4598e6;
   }
 
   .dropdown-menu {
@@ -167,13 +174,13 @@
   }
   .dropdown-menu button:hover,
   .dropdown-menu button:focus {
-    background-color: #7c3aed;
+    background-color: #bcd0e7;
     color: #f0f0f5;
     outline: none;
   }
   .dropdown-menu button.active,
   .dropdown-menu button[aria-current="page"] {
-    background-color: #7c3aed;
+    background-color: #64a4ec;
     color: #f0f0f5;
   }
 
@@ -221,20 +228,106 @@
     opacity: 0.6;
   }
   .swiper-pagination-bullet-active {
-    background: #7c3aed !important;
+    background: #64a4ec !important;
     opacity: 1;
   }
   .swiper-button-next,
   .swiper-button-prev {
-    color: #7c3aed;
+    color: #64a4ec;
   }
+
 </style>
 </head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<style>
+  .apple-carousel {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
 
+  .hero-slide {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-text {
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  }
+
+  .hero-text h2 {
+    font-size: 3.5rem;
+    margin: 0;
+    font-weight: 800;
+  }
+
+  .hero-text p {
+    font-size: 1.5rem;
+    margin-top: 12px;
+  }
+
+  /* Swiper dots estilo Apple */
+  .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.6;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #ffffff;
+    opacity: 1;
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.apple-carousel', {
+    loop: true,
+    effect: 'fade',
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    speed: 1200,
+    fadeEffect: {
+      crossFade: true
+    }
+  });
+</script>
 <body>
 <header>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet" />
+
   <nav aria-label="Menú principal">
-    <div class="logo-space"></div> <!-- Espacio vacío para logo -->
+    <div class="logo-space">
+  <img src="logo.png" alt="Logo de la empresa" style="height: 90px; object-fit: contain;" />
+</div>
+<div class="logo-space" style="display: flex; align-items: center; gap: 25px;">
+  <img src="logo.png" alt="Logo de la empresa" style="height: 90px; object-fit: contain;" />
+  <div style="
+    line-height: 1.3; 
+    font-weight: 600; 
+    color: #333; 
+    font-size: 1.3rem; 
+    text-align: center; 
+    white-space: nowrap;
+    font-family: 'Dancing Script', cursive;
+  ">
+    Marmolería y Funeraria<br />
+    Reina del Rocío
+  </div>
+</div>
+</div>
 
     <div class="dropdown">
       <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-quienes">
@@ -261,7 +354,33 @@
     <button data-section="contacto" type="button">Contáctanos</button> <!-- Cambiado -->
   </nav>
 </header>
-
+<main>
+    <section id="inicio" class="active">
+      <div class="apple-carousel swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide hero-slide" style="background-image: url('images/imagen.jpg');">
+            <div class="hero-text">
+              <h2>Innovación sin límites</h2>
+              <p>Descubre lo último en tecnología</p>
+            </div>
+          </div>
+          <div class="swiper-slide hero-slide" style="background-image: url('img2.jpg');">
+            <div class="hero-text">
+              <h2>Diseño elegante</h2>
+              <p>Estilo y funcionalidad unidos</p>
+            </div>
+          </div>
+          <div class="swiper-slide hero-slide" style="background-image: url('img3.jpg');">
+            <div class="hero-text">
+              <h2>Potencia sin igual</h2>
+              <p>Rendimiento que te acompaña</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+  </main>
 <main>
   <section id="mision" tabindex="0" aria-labelledby="mision-title" role="region">
     <h1 id="mision-title" tabindex="-1">Misión</h1>
@@ -286,6 +405,7 @@ Su padre solía decir: “uno vive y se debe al cliente”, y esta filosofía lo
     <h1 id="marmoleria-title" tabindex="-1">Marmolería</h1>
     <p>Servicios especializados en diseño y fabricación de piezas de mármol y granito.</p>
   </section>
+  
 
   <!-- Sección Funeraria -->
   <section id="funeraria" tabindex="0" aria-labelledby="funeraria-title" role="region">
@@ -302,6 +422,7 @@ Su padre solía decir: “uno vive y se debe al cliente”, y esta filosofía lo
     <h1 id="contacto-title" tabindex="-1">Contacto</h1>
     <p>Puedes contactarnos por teléfono, correo o visitándonos en nuestra sede principal.</p>
   </section>
+  
 </main>
 
 <script>
@@ -360,6 +481,49 @@ Su padre solía decir: “uno vive y se debe al cliente”, y esta filosofía lo
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
 </body>
+
+<script>
+// Mostrar dropdown al pasar mouse (hover) y ocultar los demás
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+  const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+  const menu = dropdown.querySelector('.dropdown-menu');
+
+  // Mostrar menú al pasar mouse por el botón
+  toggleBtn.addEventListener('mouseenter', () => {
+    // Ocultar todos los menús primero
+    document.querySelectorAll('.dropdown-menu').forEach(m => {
+      if (m !== menu) m.style.display = 'none';
+    });
+    // Actualizar aria-expanded
+    document.querySelectorAll('.dropdown-toggle').forEach(btn => {
+      if (btn !== toggleBtn) btn.setAttribute('aria-expanded', 'false');
+    });
+
+    menu.style.display = 'block';
+    toggleBtn.setAttribute('aria-expanded', 'true');
+  });
+
+  // Para que el menú no desaparezca al entrar en el menú mismo
+  menu.addEventListener('mouseenter', () => {
+    menu.style.display = 'block';
+    toggleBtn.setAttribute('aria-expanded', 'true');
+  });
+
+  // Ocultar menú cuando el mouse sale del dropdown completo (botón + menú)
+  dropdown.addEventListener('mouseleave', () => {
+    menu.style.display = 'none';
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+document.querySelector('.logo-space').addEventListener('click', () => {
+  // Ocultar todas las secciones
+  document.querySelectorAll('main section').forEach(sec => {
+    sec.classList.remove('active');
+  });
+  // Mostrar la sección inicio
+  document.getElementById('inicio').classList.add('active');
+});
+</script>
 </html>
+
