@@ -1,525 +1,713 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Marmolería y Funeraria Reina del Rocío</title>
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marmolería y Funeraria Reina del Rocío</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <!-- SEO / Google Search Console -->
+  <meta name="google-site-verification" content="mGQdSwOf_ld_-erg3MS06sV-PGq7Y8F80DaHy4h3MMc" />
 
-<!-- Font Awesome -->
-<script src="https://kit.fontawesome.com/a2d3e19c17.js" crossorigin="anonymous"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800;900&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
 
-<!-- Swiper CSS -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-/>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2d3e19c17.js" crossorigin="anonymous" defer></script>
 
-<style>
-  /* Reset y base */
-  * {
-    box-sizing: border-box;
+  <!-- Swiper CSS (v11) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    
+  :root {
+    /* Color palette */
+    --primary: #2595f0;
+    --primary-light: #64d8f5;
+    --primary-dark: #0066ff;
+    --text-dark: #000;
+    --text-light: #80eee5;
+    --bg: #57b6f5;
   }
+
+
+  /* Reset & base */
+  *,*::before,*::after { box-sizing: border-box; }
   body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
-    background-color: #57b6f5;
-    color: #cbd5e1;
+    background: var(--bg);
+    color: var(--text-light);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   h1 {
+    font-size: 2.6rem;
     font-weight: 900;
-    color: #000000;
-    font-size: 2.8rem;
-    text-shadow: 0 0 4px #0066ff;
+    color: var(--text-dark);
+    text-shadow: 0 0 4px var(--primary-dark);
+    margin: 0.4em 0 0.2em;
   }
-  p {
-    font-size: 1.25rem;
-    line-height: 1.7;
-    margin-top: 0.3em;
-    color: #000000;
-  }
-  ul {
-    margin-top: 0.3em;
-    color: #000000;
-    font-size: 1.2rem;
-  }
+  p, ul { color: var(--text-dark); }
+  p { font-size: 1.15rem; line-height: 1.6; margin: 0.3em 0; }
+  ul { font-size: 1.1rem; margin: 0.3em 0; }
 
   /* Navbar */
- nav {
-  display: flex;
-  justify-content: flex-end; /* botones a la derecha */
-  align-items: center;       /* centrar verticalmente todo el contenido */
-  padding: 0 12px;
-  height: 90px;              /* altura mayor */
-  background-color: #2595f0; /* celeste suave */
-  border-radius: 30px;
-  position: sticky;
-  top: 0;
-  user-select: none;
-  z-index: 10000;
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--primary);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0 1rem;
+    height: 90px;
+    border-radius: 0 0 30px 30px;
+    user-select: none;
+    flex-wrap: wrap;
+  }
+  .logo-space {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1 1 260px;
+    
+  }
+  .logo-space img { height: 70px; object-fit: contain; }
+  .brand-name {
+    line-height: 1.3;
+    font-weight: 600;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.35rem;
+    color: #333;
+    white-space: nowrap;
+  }
+.swiper {
+  height: 420px; /* Ajusta esta altura si quieres un tamaño diferente */
 }
 
-.logo-space {
-  width: 150px;           /* ancho fijo para el contenedor */
-  height: 90px;           /* altura para centrar verticalmente */
+.swiper-slide {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: flex-start; /* logo alineado a la izquierda dentro del contenedor */
-  align-items: center;          /* logo centrado verticalmente */
-  margin-right: 450px;
-  padding-left: 100px;           /* un pequeño espacio desde el borde izquierdo */
+  justify-content: center;
+  align-items: center;
 }
 
-  nav button {
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+  /* Buttons */
+  nav button, .dropdown-toggle {
     background: transparent;
-    border: 2.5px solid transparent;
+    border: 2px solid transparent;
     font-weight: 700;
-    font-size: 1.1rem;
-    color: #000000;
-    padding: 8px 16px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    padding: 6px 14px;
     border-radius: 30px;
     cursor: pointer;
-    transition:
-      background-color 0.35s ease,
-      border-color 0.35s ease,
-      color 0.35s ease,
-      transform 0.2s ease;
-    box-shadow: 0 0 4px transparent;
+    transition: background-color .3s, border-color .3s, transform .2s;
   }
-  nav button:hover,
-  nav button:focus-visible {
-    background-color: #64d8f5;
-    color: #102a43;
-    border-color: #64d8f5;
-    transform: scale(1.1);
-    box-shadow: 0 0 12px #64d8f5;
-    outline-offset: 2px;
+  nav button:hover, nav button:focus-visible,
+  .dropdown-toggle:hover, .dropdown-toggle[aria-expanded="true"] {
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+    transform: scale(1.08);
+    color: #fcfeff;
   }
-  nav button.active,
-  nav button[aria-current="page"] {
-    background-color: #4598e6;
+  nav button.active, .dropdown-toggle.active {
+    background: #4598e6;
+    border-color: #ffffff;
     color: #f0f0f5;
-    border-color: #4598e6;
-    box-shadow: 0 0 12px #4598e6;
   }
 
-  /* Dropdown styles */
+  /* Dropdown */
   .dropdown {
     position: relative;
   }
-  .dropdown-toggle {
-    font-weight: 700;
-    font-size: 1.1rem;
-    background: transparent;
-    border: 2.5px solid transparent;
-    color: #000000;
-    padding: 8px 16px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition:
-      background-color 0.35s ease,
-      border-color 0.35s ease,
-      color 0.35s ease,
-      transform 0.2s ease;
-    box-shadow: 0 0 4px transparent;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    user-select: none;
-  }
-  .dropdown-toggle:hover,
-  .dropdown-toggle[aria-expanded="true"] {
-    background-color: #64d8f5;
-    color: #102a43;
-    border-color: #64d8f5;
-    transform: scale(1.1);
-    box-shadow: 0 0 12px #64d8f5;
-  }
-  .dropdown-toggle.active {
-    background-color: #4598e6;
-    color: #f0f0f5;
-    border-color: #4598e6;
-    box-shadow: 0 0 12px #4598e6;
-  }
-
   .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
     left: 0;
-    background: rgba(20,25,40,0.9);
+    top: calc(100% + 6px);
+    background: rgba(20,25,40,.92);
     border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
     min-width: 180px;
-    z-index: 10001;
+    box-shadow: 0 8px 20px rgba(0,0,0,.5);
+    z-index: 1001;
   }
   .dropdown-menu button {
     width: 100%;
     padding: 10px 18px;
-    text-align: left;
     background: transparent;
     border: none;
-    color: #cbd5e1;
+    color: var(--text-light);
     font-weight: 600;
-    font-size: 1rem;
+    text-align: left;
     cursor: pointer;
-    border-radius: 0;
-    transition: background-color 0.3s ease;
+    transition: background-color .2s;
   }
-  .dropdown-menu button:hover,
-  .dropdown-menu button:focus {
-    background-color: #bcd0e7;
-    color: #f0f0f5;
-    outline: none;
-  }
-  .dropdown-menu button.active,
-  .dropdown-menu button[aria-current="page"] {
-    background-color: #64a4ec;
-    color: #f0f0f5;
-  }
+  .hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+  .dropdown-menu button:hover { background: #3c4b73; }
 
-  /* Sections */
+  /* Nuevo: Mostrar dropdown al hacer hover sobre el botón */
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu {
+  display: none;
+}
+.dropdown-menu.show {
+  display: block;
+}
+
+
+  /* Main layout */
   main {
-    max-width: 900px;
-    margin: 0 auto 40px auto;
-    padding: 0 12px;
+    flex: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 100%;
   }
   section {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
     transform: translateY(40px);
-    transition: opacity 0.6s ease, transform 0.6s ease, max-height 0.8s ease;
+    transition: all .6s ease;
   }
   section.active {
     opacity: 1;
-    max-height: 2000px; /* suficiente para el contenido */
-    overflow: visible;
+    max-height: 2000px;
     transform: translateY(0);
   }
-  .section-image {
-    width: 100%;
-    margin-top: 24px;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(40,10,200,0.25);
-  }
 
-  /* Swiper custom */
+  /* Carousel */
   .swiper {
-    max-width: 800px;
-    margin: 30px auto;
+    width: 100%;
+    max-width: 1000px;
+    margin: 2rem auto;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 0 30px rgba(64,32,96,0.4);
-  }
-  .swiper-slide img {
-    width: 100%;
-    object-fit: cover;
-    height: 400px;
-  }
-  .swiper-pagination-bullet {
-    background: #cbd5e1;
-    opacity: 0.6;
-  }
-  .swiper-pagination-bullet-active {
-    background: #64a4ec !important;
-    opacity: 1;
-  }
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: #64a4ec;
-  }
+    box-shadow: 0 0 30px rgba(64,32,96,.3);
 
-</style>
-</head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<style>
-  .apple-carousel {
-    width: 100%;
-    height: 100vh;
-    position: relative;
+    /* Nuevo: altura fija para todos los carruseles */
+    height: 420px;
   }
-
   .hero-slide {
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100vh;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    /* Cambiar height de 100vh a 420px para consistencia */
+    height: 420px;
+    background-size: cover;
+    background-position: center;
   }
-
   .hero-text {
     text-align: center;
-    color: white;
-    text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-shadow: 0 0 12px rgba(0,0,0,.6);
   }
-
   .hero-text h2 {
-    font-size: 3.5rem;
-    margin: 0;
+    font-size: 3rem;
     font-weight: 800;
+    margin: 0;
   }
-
   .hero-text p {
-    font-size: 1.5rem;
-    margin-top: 12px;
+    font-size: 1.4rem;
+    margin-top: .75rem;
   }
-
-  /* Swiper dots estilo Apple */
   .swiper-pagination-bullet {
-    background: white;
-    opacity: 0.6;
+    background: #fff;
+    opacity: .6;
   }
-
   .swiper-pagination-bullet-active {
-    background: #ffffff;
     opacity: 1;
   }
-</style>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  const swiper = new Swiper('.apple-carousel', {
-    loop: true,
-    effect: 'fade',
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    speed: 1200,
-    fadeEffect: {
-      crossFade: true
+
+  /* Footer */
+  .site-footer {
+    background: var(--primary-dark);
+    color: #f0f0f5;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+  .site-footer .footer-content p {
+    margin: 0.3em 0;
+    font-size: 0.95rem;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    nav {
+      gap: .6rem;
+      height: auto;
+      padding: .5rem .75rem;
     }
-  });
-</script>
-<body>
-<header>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet" />
+    nav button, .dropdown-toggle {
+      font-size: .9rem;
+      padding: 6px 10px;
+    }
+    /* Nuevo: ajustar altura en móvil */
+    .hero-slide, .swiper {
+      height: 300px;
+    }
+    .hero-text h2 {
+      font-size: 2rem;
+    }
+    .hero-text p {
+      font-size: 1rem;
+    }
+    .site-footer {
+      padding: 1rem .5rem;
+    }
+    .site-footer .footer-content p {
+      font-size: .85rem;
+    }
+  }
 
-  <nav aria-label="Menú principal">
-    <div class="logo-space">
-  <img src="logo.png" alt="Logo de la empresa" style="height: 90px; object-fit: contain;" />
-</div>
-<div class="logo-space" style="display: flex; align-items: center; gap: 25px;">
-  <img src="logo.png" alt="Logo de la empresa" style="height: 90px; object-fit: contain;" />
-  <div style="
-    line-height: 1.3; 
-    font-weight: 600; 
-    color: #333; 
-    font-size: 1.3rem; 
-    text-align: center; 
-    white-space: nowrap;
-    font-family: 'Dancing Script', cursive;
-  ">
-    Marmolería y Funeraria<br />
-    Reina del Rocío
-  </div>
-</div>
-</div>
+  /* Contact bar styling */
+  .contact-bar {
+    background: var(--primary-dark);
+    color: #f0f0f5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    margin: 0.5rem;
+  }
+  .social-icons a {
+    color: #f0f0f5;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    transition: color .3s;
+  }
+  .social-icons a:hover {
+    color: var(--primary-light);
+  }
+  </style>
+  <style>
+.swiper.apple-style {
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+}
 
-    <div class="dropdown">
-      <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-quienes">
-        ¿QUIÉNES SOMOS? <i class="fas fa-caret-down" aria-hidden="true" style="margin-left: 6px;"></i>
-      </button>
-      <div id="submenu-quienes" class="dropdown-menu" role="menu" aria-label="Submenú de ¿Quiénes Somos?">
-        <button data-section="mision" type="button" role="menuitem" class="submenu-btn">MISIÓN</button>
-        <button data-section="vision" type="button" role="menuitem" class="submenu-btn">VISIÓN</button>
-        <button data-section="historia" type="button" role="menuitem" class="submenu-btn">NUESTRA HISTORIA</button>
+.swiper.apple-style .swiper-slide {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: start;
+}
+
+.swiper.apple-style .overlay {
+  color: #fff;
+  padding: 2rem;
+  background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+  width: 100%;
+}
+
+.swiper.apple-style .overlay small {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.swiper.apple-style .overlay h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.swiper-pagination-bullet {
+  background: #ffffff !important;
+  opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+</style>
+</head>
+ <body>
+  
+  <!-- HEADER / NAVBAR -->
+  <header>
+    <nav aria-label="Menú principal">
+      <div class="logo-space" id="logo-btn" style="cursor:pointer;">
+        <img src="logo.png" alt="Logo de la empresa" />
+        <div class="brand-name">Marmolería y Funeraria<br />Reina del Rocío</div>
       </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-servicios">
-        Servicios <i class="fas fa-caret-down" aria-hidden="true" style="margin-left: 6px;"></i>
-      </button>
-      <div id="submenu-servicios" class="dropdown-menu" role="menu" aria-label="Submenú de Servicios">
-        <button data-section="marmoleria" type="button" role="menuitem" class="submenu-btn">Marmolería</button>
-        <button data-section="funeraria" type="button" role="menuitem" class="submenu-btn">Funeraria</button>
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-quienes">¿QUIÉNES SOMOS? <i class="fas fa-caret-down"></i></button>
+        <div id="submenu-quienes" class="dropdown-menu" role="menu">
+          <button data-section="mision" class="submenu-btn">MISIÓN</button>
+          <button data-section="vision" class="submenu-btn">VISIÓN</button>
+          <button data-section="historia" class="submenu-btn">NUESTRA HISTORIA</button>
+        </div>
       </div>
-    </div>
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-servicios">Servicios <i class="fas fa-caret-down"></i></button>
+        <div id="submenu-servicios" class="dropdown-menu" role="menu">
+          <button data-section="marmoleria" class="submenu-btn">Marmolería</button>
+          <button data-section="funeraria" class="submenu-btn">Funeraria</button>
+        </div>
+      </div>
+      <button data-section="materiales">Materiales</button>
+      <button data-section="contacto">Contáctanos</button>
+      <button data-section="ubicacion">Ubicación</button>
+    </nav>
+  </header>
 
-    <button data-section="materiales" type="button">Materiales</button> <!-- Cambiado -->
-    <button data-section="contacto" type="button">Contáctanos</button> <!-- Cambiado -->
-  </nav>
-</header>
-<main>
-    <section id="inicio" class="active">
-      <div class="apple-carousel swiper">
+  <!-- MAIN -->
+  <main>
+        <section id="inicio" class="active">
+      <div class="swiper apple-carousel">
         <div class="swiper-wrapper">
-          <div class="swiper-slide hero-slide" style="background-image: url('images/imagen.jpg');">
-            <div class="hero-text">
-              <h2>Innovación sin límites</h2>
-              <p>Descubre lo último en tecnología</p>
-            </div>
-          </div>
-          <div class="swiper-slide hero-slide" style="background-image: url('img2.jpg');">
-            <div class="hero-text">
-              <h2>Diseño elegante</h2>
-              <p>Estilo y funcionalidad unidos</p>
-            </div>
-          </div>
-          <div class="swiper-slide hero-slide" style="background-image: url('img3.jpg');">
-            <div class="hero-text">
-              <h2>Potencia sin igual</h2>
-              <p>Rendimiento que te acompaña</p>
-            </div>
-          </div>
+
+          <div class="swiper-slide hero-slide">
+  <img src="img1.jpg" alt="Imagen 1" />
+</div>
+<div class="swiper-slide hero-slide">
+  <img src="img2.jpg" alt="Imagen 2" />
+</div>
+<div class="swiper-slide hero-slide">
+  <img src="img3.jpg" alt="Imagen 3" />
+</div>
+<div class="swiper-slide hero-slide">
+  <img src="img4.jpg" alt="Imagen 4" />
+</div>
+<div class="swiper-slide hero-slide">
+  <img src="img5.jpg" alt="Imagen 5" />
+</div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!-- MISION -->
+    <section id="mision">
+      <h1>Misión</h1>
+      <p>En Marmolería y Funeraria Reina del Rocío nos esforzamos por ser la empresa líder en la región, reconocida por la calidad excepcional de nuestros productos y servicios funerarios. Nuestro compromiso es brindar atención personalizada, con respeto y sensibilidad, acompañando a las familias en momentos difíciles. Trabajamos con ética y dedicación para honrar la memoria de quienes nos confían su confianza, manteniendo viva la tradición artesanal que nos distingue.
+
+</p>
+      <div class="swiper mission-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/mision1.jpg" alt="Misión 1"></div>
+          <div class="swiper-slide"><img src="img/mision2.jpg" alt="Misión 2"></div>
+          <div class="swiper-slide"><img src="img/mision3.jpg" alt="Misión 3"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!-- VISION -->
+    <section id="vision">
+      <h1>Visión</h1>
+      <p>Ser la empresa líder en marmolería y servicios funerarios en la región, reconocida por la calidad superior de nuestros productos, la innovación constante y el compromiso con un servicio humano y respetuoso que garantice la confianza y satisfacción plena de nuestros clientes.
+
+</p>
+      <div class="swiper vision-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/vision1.jpg" alt="Visión 1"></div>
+          <div class="swiper-slide"><img src="img/vision2.jpg" alt="Visión 2"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!-- HISTORIA -->
+    <section id="historia">
+      <h1>Nuestra Historia</h1>
+
+<p>La historia de Marmolería Reina del Rocío es, ante todo, una historia de pasión, esfuerzo y dedicación al arte del mármol y la escultura. Todo comenzó cuando su fundador, con apenas 12 años, entró por primera vez a un taller de marmolería, donde combinaba largas jornadas de trabajo durante el día con estudios nocturnos. Desde muy joven, aprendió no solo las técnicas del oficio, sino también el valor del compromiso y la perseverancia.</p>
+
+<p>Durante 14 años, fue acumulando experiencia, perfeccionando cada detalle y conociendo de cerca las exigencias de este trabajo artesanal. Este tiempo le sirvió para formarse como un maestro en la creación de figuras de mármol y bronce, piezas fundamentales para talleres que fabricaban lápidas, donde el respeto por la memoria y la estética son esenciales.</p>
+
+<p>Con ese bagaje y una visión clara, decidió emprender un nuevo camino y, en 1996, con 28 años, abrió su propio taller en la ciudad de Biblián. No fue solo un negocio, sino un proyecto de vida, dedicado a la fabricación completa y personalizada de lápidas. Desde entonces, cada pieza elaborada en Marmolería Reina del Rocío refleja un compromiso profundo con la calidad y la sensibilidad artística, entendiendo que cada obra lleva consigo una historia y un homenaje.</p>
+
+<p>El lema que siempre ha guiado su trabajo proviene de las enseñanzas de su padre: “uno vive y se debe al cliente.” Esta filosofía no solo se convirtió en una máxima empresarial, sino en un compromiso humano. Durante más de dos décadas, esta idea ha motivado la búsqueda constante de la excelencia en cada detalle, la atención cercana y el respeto por quienes confían en el taller para honrar a sus seres queridos.</p>
+
+<p>Hoy, Marmolería Reina del Rocío es mucho más que un taller de marmolería; es un referente local de artesanía y dedicación. A lo largo de 26 años, ha evolucionado integrando nuevas técnicas, pero sin perder jamás la esencia artesanal que la distingue. Cada día es una oportunidad para aprender, innovar y perfeccionar el oficio, siempre con la convicción de que el arte y el servicio son inseparables.</p>
+
+<p>La historia de Marmolería Reina del Rocío es la historia de un sueño cumplido que sigue vivo en cada pieza, en cada detalle y en la sonrisa satisfecha de sus clientes, quienes encuentran en este taller no solo un servicio, sino un verdadero compromiso con la memoria y el respeto.</p>
+
+      <div class="swiper historia-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/historia1.jpg" alt="Historia 1"></div>
+          <div class="swiper-slide"><img src="img/historia2.jpg" alt="Historia 2"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!-- MARMOLERIA -->
+    <section id="marmoleria">
+      <h1>Marmolería</h1>
+      <p>Ofrecemos servicios especializados en el diseño, elaboración y fabricación de lápidas y monumentos funerarios en mármol y granito, utilizando técnicas artesanales que garantizan durabilidad y belleza. Nuestro compromiso es crear piezas únicas que honren la memoria de tus seres queridos, combinando calidad, precisión y un profundo respeto por cada detalle. A través de un trabajo cuidadoso y personalizado, acompañamos a las familias en un proceso sensible, asegurando que cada monumento sea un reflejo digno y eterno de amor y recuerdo.</p>
+      <div class="swiper marmoleria-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/marmoleria1.jpg" alt="Marmolería 1"></div>
+          <div class="swiper-slide"><img src="img/marmoleria2.jpg" alt="Marmolería 2"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!-- FUNERARIA -->
+    <section id="funeraria">
+      <h1>Funeraria</h1>
+      <p>Brindamos servicios funerarios integrales con respeto, profesionalismo y sensibilidad, acompañando a las familias en cada etapa del proceso. Nuestro compromiso es ofrecer apoyo completo, desde la asesoría hasta la organización, asegurando una atención digna y personalizada que honre la memoria de sus seres queridos y proporcione tranquilidad en los momentos más difíciles.
+
+</p>
+      <div class="swiper funeraria-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/funeraria1.jpg" alt="Funeraria 1"></div>
+          <div class="swiper-slide"><img src="img/funeraria2.jpg" alt="Funeraria 2"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!-- MATERIALES -->
+    <section id="materiales">
+      <h1>Materiales que usamos</h1>
+
+<h2>Piezas y letras en bronce</h2>
+<p>En Marmolería Reina del Rocío, fabricamos piezas y letras en <strong>bronce</strong> de alta calidad, que aportan un acabado elegante y duradero a cada trabajo. El bronce es un material resistente a la corrosión y a las inclemencias del tiempo, ideal para detalles que buscan destacar y perdurar en el tiempo. Gracias a su tono cálido y acabado brillante, las letras y figuras en bronce son un complemento perfecto para nuestras lápidas y esculturas, reflejando respeto y distinción.</p>
+
+<h2>Mármol nacional</h2>
+<p>Utilizamos <strong>mármol nacional</strong> proveniente de nuestras canteras locales, valorado por su resistencia y belleza natural. Este mármol es ideal para crear piezas sólidas y con un acabado estético impecable. Su textura y vetas únicas aportan carácter y personalidad a cada obra, además de apoyar la economía local.</p>
+
+<h2>Mármol italiano</h2>
+<p>El <strong>mármol italiano</strong> es reconocido mundialmente por su suavidad y elegancia. Es un material noble que destaca por sus vetas delicadas y su textura fina, perfecto para trabajos que requieren detalles sofisticados y acabados exclusivos. En Marmolería Reina del Rocío, usamos este mármol para dar un toque de distinción a las piezas más especiales.</p>
+
+<h2>Granito negro</h2>
+<p>El <strong>granito negro</strong> es uno de los materiales más resistentes y duraderos que ofrecemos. Su acabado pulido y su color intenso hacen que sea muy valorado para piezas exteriores que deben soportar el paso del tiempo sin perder su belleza. Además, su textura lisa y elegante combina perfectamente con otros materiales, realzando la calidad de cada creación.</p>
+
+
+      <div class="swiper materiales-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/material1.jpg" alt="Material 1"></div>
+          <div class="swiper-slide"><img src="img/material2.jpg" alt="Material 2"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!-- UBICACION -->
+    <section id="ubicacion">
+      <div>
+  <h2>Dirección</h2>
+  <p>El Vado, Av. Alberto Ochoa 5-30, Azogues 030106</p>
+</div>
+
+<div>
+  <h2>Atención y compromiso</h2>
+  <p>Un espacio donde la atención cercana y el compromiso con la calidad se unen para ofrecerte el mejor servicio en marmolería y funeraria. Estamos aquí para acompañarte con respeto y profesionalismo en cada paso.</p>
+</div>
+      <div class="swiper ubicacion-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="imgmapa1.jpg" alt="Ubicación 1"></div>
+          <div class="swiper-slide"><img src="imgmapa2.jpg" alt="Ubicación 2"></div>
+          
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <iframe src="https://www.google.com/maps/d/embed?mid=1yf1FUpoRKm7WsEjACY0HYmCId5tuaWM" width="100%" height="700" style="border:0;" allowfullscreen></iframe>
+    </section>
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h1>Contacto</h1>
+      <p>Puedes contactarnos por teléfono, correo electrónico o visitarnos en nuestra sede principal.</p>
+      <div class="swiper contacto-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/contacto1.jpg" alt="Contacto 1"></div>
+          <div class="swiper-slide"><img src="img/contacto2.jpg" alt="Contacto 2"></div>
         </div>
         <div class="swiper-pagination"></div>
       </div>
     </section>
   </main>
-<main>
-  <section id="mision" tabindex="0" aria-labelledby="mision-title" role="region">
-    <h1 id="mision-title" tabindex="-1">Misión</h1>
-    <p>Ser la marmolería y Funeraría de referencia en la región, destacándonos por la calidad de nuestros productos y la satisfacción de nuestros clientes.
-</p>
-  </section>
+<!-- CONTACT BAR -->
+<div class="contact-bar">
+  <!-- IZQUIERDA – redes sociales -->
+  <div class="social-icons">
+    <a href="https://www.facebook.com/MarmoleriayFunerariaReinadelRocio?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/marmoleriareinadelrocio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Sxu0lyuJ6iB2d0nYI1-GIKP2VPUPQ4KQvA&s" alt="Instagram">
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=593986671736&text=Hola%20MARMOLERIAREINADELROCIO%20mi%20nombre%20es" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <img src="https://store-images.s-microsoft.com/image/apps.8453.13655054093851568.4a371b72-2ce8-4bdb-9d83-be49894d3fa0.7f3687b9-847d-4f86-bb5c-c73259e2b38e" alt="WhatsApp">
+    </a>
+  </div>
 
-  <section id="vision" tabindex="0" aria-labelledby="vision-title" role="region">
-    <h1 id="vision-title" tabindex="-1">Visión</h1>
-    <p>Proveer mármol y servicios de procesamiento con excelencia, innovando continuamente para satisfacer las necesidades y expectativas de nuestros clientes.
-</p>
-  </section>
+  <!-- CENTRO – datos de contacto -->|
+  <div class="contact-center">
+    <p><strong>Horario de atención</strong></p>
+    <p>Lunes a Viernes: 9:00am a 17:15pm</p>
+    <p>Sábados: 9:00am a 14:00pm</p>
+    <p><strong>Tel.:</strong>
+      <a href="tel:+593986671736" style="color:#000000;text-decoration:none;">+593 98 667 1736</a> /
+      <a href="tel:+593981099937" style="color:#000000;text-decoration:none;">+593 98 109 9937</a> /
+      <a href="tel:+59372232310" style="color:#000000;text-decoration:none;">(07) 223 2310</a>
+    </p>
+    <p><strong>Correo:</strong>
+      <a href="marmoleriareinadelrocio200@gmail.com" style="color:#000000;text-decoration:none;">marmoleriareinadelrocio200@gmail.com
+</a>
+    </p>
+  </div>
 
-  <section id="historia" tabindex="0" aria-labelledby="historia-title" role="region">
-    <h1 id="historia-title" tabindex="-1">Nuestra Historia</h1>
-    <p>Desde los 12 años, trabajaba en un taller de marmolería durante el día y estudiaba en la noche. Con 14 años de experiencia en el oficio, decidió trabajar por su cuenta, creando figuras de mármol y bronce para talleres que fabricaban lápidas. A los 28 años, abrió su propio local en Biblián en 1996, dedicándose a la fabricación completa de lápidas.
-Su padre solía decir: “uno vive y se debe al cliente”, y esta filosofía lo guió durante los 26 años que siguieron. Su compromiso con el arte y el servicio al cliente convirtió su taller en un referente local, donde cada día era una nueva oportunidad para aprender y perfeccionar su</p>
-  </section>
+  <!-- DERECHA – logo -->
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo Reina del Rocío">
+  </div>
+</div>
 
-  <!-- Sección Marmolería -->
-  <section id="marmoleria" tabindex="0" aria-labelledby="marmoleria-title" role="region">
-    <h1 id="marmoleria-title" tabindex="-1">Marmolería</h1>
-    <p>Servicios especializados en diseño y fabricación de piezas de mármol y granito.</p>
-  </section>
-  
+<!-- Estilos para la barra -->
+<style>
+  .contact-bar {
+    background: #8ccefa;
+    color: #f0f0f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+  }
 
-  <!-- Sección Funeraria -->
-  <section id="funeraria" tabindex="0" aria-labelledby="funeraria-title" role="region">
-    <h1 id="funeraria-title" tabindex="-1">Funeraria</h1>
-    <p>Servicios funerarios integrales con respeto y profesionalismo.</p>
-  </section>
+  .social-icons {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+  }
 
-  <section id="materiales" tabindex="0" aria-labelledby="materiales-title" role="region">
-    <h1 id="materiales-title" tabindex="-1">Materiales que usamos en la marmolería</h1>
-    <p>Usamos mármoles importados y locales, granito, cuarzo y otros materiales de alta calidad.</p>
-  </section>
+  .social-icons img {
+    width: 50px;
+    height: 50px;
+  }
 
-  <section id="contacto" tabindex="0" aria-labelledby="contacto-title" role="region">
-    <h1 id="contacto-title" tabindex="-1">Contacto</h1>
-    <p>Puedes contactarnos por teléfono, correo o visitándonos en nuestra sede principal.</p>
-  </section>
-  
-</main>
+  .contact-center {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+  }
 
-<script>
-  // Toggle dropdown menus
-  document.querySelectorAll('.dropdown-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      const menu = document.getElementById(btn.getAttribute('aria-controls'));
-      if (menu) {
-        menu.style.display = expanded ? 'none' : 'block';
-      }
-    });
-  });
+  .contact-center p {
+    margin: 0.25rem 0;
+  }
 
-  // Show sections on button click
-  const buttons = document.querySelectorAll('nav button[data-section], .submenu-btn');
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Hide dropdown menus on click
-      document.querySelectorAll('.dropdown-menu').forEach(menu => {
-        menu.style.display = 'none';
-      });
-      document.querySelectorAll('.dropdown-toggle').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+  .logo-container img {
+    height: 100px;
+  }
 
-      const sectionId = button.getAttribute('data-section');
-      if (!sectionId) return;
-
-      document.querySelectorAll('main section').forEach(sec => {
-        if (sec.id === sectionId) {
-          sec.classList.add('active');
-          sec.focus();
-        } else {
-          sec.classList.remove('active');
-        }
-      });
-
-      // Mark active button
-      buttons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-    });
-  });
-
-  // Initialize - show first section
-  window.addEventListener('load', () => {
-    const firstSection = document.querySelector('main section');
-    if (firstSection) {
-      firstSection.classList.add('active');
-      firstSection.focus();
-      // Mark first button active
-      const firstBtn = document.querySelector(`button[data-section="${firstSection.id}"], .submenu-btn[data-section="${firstSection.id}"]`);
-      if (firstBtn) firstBtn.classList.add('active');
+  @media (max-width: 768px) {
+    .contact-bar {
+      flex-direction: column;
+      text-align: center;
     }
-  });
-</script>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-</body>
+    .social-icons,
+    .logo-container {
+      margin-top: 0.8rem;
+    }
+  }
+</style>
 
-<script>
-// Mostrar dropdown al pasar mouse (hover) y ocultar los demás
-document.querySelectorAll('.dropdown').forEach(dropdown => {
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.swiper').forEach(carousel => {
+        new Swiper(carousel, { loop:true, slidesPerView:1, pagination:{ el: carousel.querySelector('.swiper-pagination'), clickable:true }, autoplay:{ delay:4000 } });
+      });
+      document.querySelectorAll('.dropdown-toggle').forEach(btn => btn.addEventListener('click', () => { const expanded = btn.getAttribute('aria-expanded')==='true'; btn.setAttribute('aria-expanded', !expanded); document.getElementById(btn.getAttribute('aria-controls')).style.display = expanded?'none':'block'; }));
+      const navButtons=document.querySelectorAll('button[data-section],.submenu-btn'); navButtons.forEach(button=>button.addEventListener('click',()=>{ document.querySelectorAll('main section').forEach(sec=>sec.classList.toggle('active',sec.id===button.dataset.section)); navButtons.forEach(btn=>btn.classList.remove('active')); button.classList.add('active');}));
+      document.getElementById('logo-btn').addEventListener('click',()=>{ document.querySelectorAll('main section').forEach(sec=>sec.classList.remove('active')); document.getElementById('inicio').classList.add('active'); document.querySelectorAll('button').forEach(btn=>btn.classList.remove('active')); });
+    });
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
   const toggleBtn = dropdown.querySelector('.dropdown-toggle');
   const menu = dropdown.querySelector('.dropdown-menu');
 
-  // Mostrar menú al pasar mouse por el botón
-  toggleBtn.addEventListener('mouseenter', () => {
-    // Ocultar todos los menús primero
-    document.querySelectorAll('.dropdown-menu').forEach(m => {
-      if (m !== menu) m.style.display = 'none';
+  function closeAllExcept(currentMenu) {
+    document.querySelectorAll('.dropdown-menu.show').forEach(openMenu => {
+      if (openMenu !== currentMenu) {
+        openMenu.classList.remove('show');
+        openMenu.parentElement.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+      }
     });
-    // Actualizar aria-expanded
-    document.querySelectorAll('.dropdown-toggle').forEach(btn => {
-      if (btn !== toggleBtn) btn.setAttribute('aria-expanded', 'false');
-    });
-
-    menu.style.display = 'block';
+  }
+document.querySelectorAll('.swiper').forEach(carousel => {
+  new Swiper(carousel, {
+    loop: true,
+    slidesPerView: 1,
+    pagination: {
+      el: carousel.querySelector('.swiper-pagination'),
+      clickable: true
+    },
+    autoplay: {
+      delay: 4000
+    }
+  });
+});
+  // Abrir menú al pasar el mouse y dejarlo abierto
+  dropdown.addEventListener('mouseenter', () => {
+    closeAllExcept(menu);
+    menu.classList.add('show');
     toggleBtn.setAttribute('aria-expanded', 'true');
   });
 
-  // Para que el menú no desaparezca al entrar en el menú mismo
-  menu.addEventListener('mouseenter', () => {
-    menu.style.display = 'block';
-    toggleBtn.setAttribute('aria-expanded', 'true');
+  // No se cierra al quitar el mouse (por eso no agregamos mouseleave)
+
+  // Cerrar el menú cuando se hace clic en el botón o en cualquier lugar del dropdown
+  toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (menu.classList.contains('show')) {
+      menu.classList.remove('show');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    } else {
+      closeAllExcept(menu);
+      menu.classList.add('show');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+    }
   });
 
-  // Ocultar menú cuando el mouse sale del dropdown completo (botón + menú)
-  dropdown.addEventListener('mouseleave', () => {
-    menu.style.display = 'none';
+  // También puedes cerrar el menú haciendo clic dentro del menú
+  menu.addEventListener('click', () => {
+    menu.classList.remove('show');
     toggleBtn.setAttribute('aria-expanded', 'false');
+    
   });
 });
-document.querySelector('.logo-space').addEventListener('click', () => {
-  // Ocultar todas las secciones
-  document.querySelectorAll('main section').forEach(sec => {
-    sec.classList.remove('active');
-  });
-  // Mostrar la sección inicio
-  document.getElementById('inicio').classList.add('active');
-});
-</script>
+
+
+
+  </script>
+</body>
 </html>
